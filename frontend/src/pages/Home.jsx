@@ -21,7 +21,7 @@ const Home = () => {
   
 
   return (
-    <div className='pt-20 px-10 bg-slate-50'>
+    <div className='pt-28 px-10 bg-slate-50 pb-20'>
     <div className={sliderStyle}></div>
     <div className={cardGrid}>
       {productState.products.map((x)=>{

@@ -10,7 +10,7 @@ const ProductTable = ({products}) => {
         
     }
 
-  return (
+  return ( 
     <div> 
         <table className='w-full'>
             <thead>
@@ -26,7 +26,7 @@ const ProductTable = ({products}) => {
                     return (
                     <tr key={x._id} className='[&>th]:max-h-10 [&>th]:overflow-hidden [&>th]:border [&>th]:px-4 [&>th]:py-2 bg-slate-200'>
                         <th >
-                            {x.name.slice(0,20)}
+                            {x.name?.slice(0,20)}
                         </th>
                         
                         <th>

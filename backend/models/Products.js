@@ -17,7 +17,8 @@ const productSchema = new mongoose.Schema({
     category:[
         {
             type:mongoose.Types.ObjectId,
-            ref:'categoryModel'
+            ref:'categoryModel',
+            unique:true
         }
     ],
     price: {type:Number, required:[true,'please mention price']} ,
