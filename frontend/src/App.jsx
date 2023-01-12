@@ -23,6 +23,7 @@ import axios from "axios"
 import { useEffect } from "react"
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import Success from "./pages/Success"
  
 
 export const SidebarContext = createContext()
@@ -69,7 +70,8 @@ function App() {
             <Route path="/search" element={<Search/>}/>
             <Route path="/search/:key" element={<Search/>}/>
             <Route path="/products/:id" element={<ProductDetails/>}/>
-            <Route path="/:category" element={<CategoryProducts/>}/>
+            <Route path="/category/:category" element={<CategoryProducts/>}/>
+            <Route path="/success" element={<Success/>}/>
             <Route path="/user/:user" element={<UserDetails/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
             <Route path="/forgot-password" element={<ForgetPassword/>}/>

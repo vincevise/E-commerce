@@ -4,7 +4,7 @@ import Login from './Login'
 
 const LoginForm = () => {
   return (
-    <div className='flex '>
+    <div className='flex z-30'>
         <div className='my-auto w-1/2'>
          <Form/>
         </div>

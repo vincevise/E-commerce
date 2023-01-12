@@ -8,6 +8,7 @@ import ProductCard from '../components/ProductCard';
 const CategoryProducts = () => {
     const {category} = useParams()
     const [products,setProducts] = useState([]) 
+    
 
     const fetchCategoryProduct = async() => {
         await axios.get(`http://localhost:7000/api/category/${category}`).then((res)=>setProducts(res.data.data.products))
@@ -15,6 +16,7 @@ const CategoryProducts = () => {
 
     useEffect(()=>{
         fetchCategoryProduct()
+        console.log(category)
     },[category])
 
   return (

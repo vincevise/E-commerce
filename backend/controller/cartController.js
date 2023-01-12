@@ -7,7 +7,6 @@ const createCart = async (req, res) => {
   try {
     const { token, cart } = req.body;
     const { UserID } = jwt.verify(token, process.env.SECRET_KEY);
-    console.log(req.body);
     const cartItem = await cartModel.findOneAndUpdate(
       { user: UserID },
       { cart: cart },
@@ -27,7 +26,6 @@ const getCart = async (req, res) => {
     const { cart } = await cartModel
       .findOne({ user: UserID })
       .populate("cart.product");
-    console.log(cart);
     const newCart = await Promise.all(
       cart.map(async (item) => {
         product = await productModel

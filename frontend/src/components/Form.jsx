@@ -11,7 +11,7 @@ const Form = () => {
     const arr = ['/login','/register']
    
 
-    const formStyle = `${arr.includes(location.pathname) ? '' : 'fixed'} right-0 left-0 top-36 w-9/12   mx-auto  border-red-100 border-solid items-center justify-center   bg-white text-center`
+    const formStyle = `${arr.includes(location.pathname) ? '' : 'fixed'} right-0 left-0 top-36 w-9/12   mx-auto  border-red-100 border-solid items-center justify-center bg-white text-center z-20`
   return (
     <div
     className={formStyle}

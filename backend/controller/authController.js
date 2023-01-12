@@ -3,19 +3,29 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config("./config/.env");
 const nodemailer = require('nodemailer')
+const { AvatarGenerator } = require('random-avatar-generator');
+
 
 
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
+
+    const generator = new AvatarGenerator()
+    const photoURL = generator.generateRandomAvatar()
+
     const isUser = await userModel.findOne({ email: email });
     if (isUser) {
       return res.status(400).json({ error: "User already exsist" });
     }
+
+    
+
     const user = await userModel.create({
       username: username,
       email: email,
       password: password,
+      photo:photoURL
     });
     if (!user) {
       return res.status(400).json({ error: "Please fill all the details" });
@@ -144,6 +154,7 @@ const getUserDetail = async (req, res) => {
         username: user.username,
         email: user.email,
         token: token,
+        photo:user.photo
       },
       message: "login successfully",
     });

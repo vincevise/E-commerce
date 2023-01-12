@@ -54,6 +54,9 @@ const ProductDetails = () => {
         dispatch(postReview(data)).then(()=>setModal(false))
     }
     console.log(reviewState)
+
+    const colors = ['red','green','yellow','blue','orange']
+
   return (
     <div className='pt-28 px-6 pb-28 flex flex-col lg:flex-row lg:mb-0'>
         
@@ -77,7 +80,7 @@ const ProductDetails = () => {
             <h1 className='text-2xl mb-2'>{product.name}</h1>
             <span className='border flex items-center border-black px-2 mb-2 w-14 justify-between'>4.5 <GoStar/></span>
             <span className='text-3xl'>₹ <b>{product.price}</b></span> 
-            <div className='my-3'>{product.category.map((x,i)=><Link to={`/${x.name}`} className='inline-block px-3 py-1 font-medium rounded-md bg-slate-500 text-white' key={i}>{x.name}</Link>)}</div>
+            <div className='my-3'>{product.category.map((x,i)=><Link to={`/category/${x.name}`} className='inline-block px-3 py-1 font-medium rounded-md bg-slate-500 text-white' key={i}>{x.name}</Link>)}</div>
             <p className='mt-2'>
                 {product.description}
             </p>
@@ -92,9 +95,11 @@ const ProductDetails = () => {
             <div className=' mt-4 ml-2 '>
                 <h1 className='mb-2 text-lg font-bold	'>Reviews</h1>
                 {reviewState.reviews?.map((x)=>{
+                    console.log(x) 
+                    const color = Math.floor(Math.random()*colors.length)
                     return (<div className='p-2' key={x._id}>
                         <div className='flex items-center gap-2'>
-                            <span><BsPersonCircle className='fill-gray-400' size={30}/></span>
+                            <img src={x.user.photo} alt="" className={`w-10 bg-${colors[0]}-300`} />
                             <span>
                                 {x.user.username}
                             </span>

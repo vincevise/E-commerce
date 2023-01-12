@@ -14,6 +14,8 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectAllUsers } from '../featurs/userSlice'
 import { useNavigate } from 'react-router-dom'
+import cartSlice, { selectCart } from '../featurs/cartSlice'
+import { createOrder } from '../api/api'
 
 
 const Payment = () => {
@@ -22,20 +24,26 @@ const Payment = () => {
     const payBtn = useRef()
     const navigate = useNavigate()
     const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
-    console.log(orderInfo)
     const userState = useSelector(selectAllUsers)
-    console.log(userState)
     const shippingInfo = JSON.parse(localStorage.getItem('address'))
-    console.log(shippingInfo)
+    const cartState = useSelector(selectCart)
+    console.log(cartState)
+
+    const order = {
+        products:cartState,
+        bill:orderInfo,
+        shippingInfo:{...shippingInfo},
+        date:new Date(),
+        email:userState.email
+    }
+
+ 
+
     const submitHandler = async(e) => {
         e.preventDefault()
         payBtn.current.disabled = true
         try{
-            const config = {
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              };
+             
             const {data} = await axios.post('http://localhost:7000/api/payment/process',{amount:orderInfo.finalCost*100} )
 
             const client_secret = data.client_secret
@@ -66,7 +74,7 @@ const Payment = () => {
                 alert(result.error.message)
             } else {
                 if(result.paymentIntent.status ==='succeeded'){
-                   navigate("/success") 
+                    createOrder(order).then(()=>navigate("/success") )
                 }else{
                     alert('There is some error while processing payment')
                 }
@@ -80,10 +88,12 @@ const Payment = () => {
     }
   return (
     <div className='w-full h-screen '>
+        
         <form onSubmit={(e)=>submitHandler(e)} className='  mx-auto my-auto w-96  h-screen pt-20 text-center'> 
         <div className='pt-20 '>
-
-            <p className='m-2 p-2 font-bold'>Card Info</p>
+        <p>This is payment gateway is for Testing,</p>
+        <p><strong>Dont add Real Card Details </strong></p>
+        <p>Instead put this as card No: 4242 4242 4242 4242</p>
             <div className='flex border border-slate-300 p-2 m-2 rounded-lg'> 
                 <BsFillCreditCard2BackFill/>
                  <CardNumberElement className='pl-4 w-full '/> 

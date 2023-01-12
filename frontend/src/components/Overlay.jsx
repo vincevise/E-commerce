@@ -3,7 +3,7 @@ import { SidebarContext } from '../App'
 
 const Overlay = () => {
 
-    const overlayStyle = `fixed w-full h-screen bg-neutral-900 opacity-25 transition duration-300 ease-out`
+    const overlayStyle = `fixed w-full h-screen bg-neutral-900 opacity-25 transition duration-300 ease-out z-10`
 
     const {form,sidebar,setForm,setSidebar} = useContext(SidebarContext)
 

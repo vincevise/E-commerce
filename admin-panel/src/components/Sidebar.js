@@ -25,7 +25,7 @@ const Sidebar = () => {
 
 export default Sidebar
 
-const containerStyle = 'w-1/5 h-screen bg-slate-800 text-white text-center'
+const containerStyle = 'w-1/5 h-11/12 bg-slate-800 text-white text-center'
 
 const unselected = 'cursor-pointer hover:text-black hover:bg-slate-400 py-2'
  

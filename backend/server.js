@@ -9,6 +9,7 @@ const { cartRouter } = require('./routes/cartRouter')
 const { categoryRouter } = require('./routes/categoryRouter')
 const { reviewRouter } = require('./routes/reviewRouter')
 const { paymentRouter } = require('./routes/paymentRouter')
+const { orderRouter } = require('./routes/ordersRouter')
 
 
 
@@ -32,6 +33,8 @@ app.use('/api/cart',cartRouter)
 app.use('/api/category',categoryRouter) 
 app.use('/api/review',reviewRouter) 
 app.use('/api/payment',paymentRouter) 
+app.use('/api/payment',paymentRouter) 
+app.use('/api/orders',orderRouter)
 
 app.get('/',(req,res)=>{
     res.status(200).json({msg:'its up and running'}) 

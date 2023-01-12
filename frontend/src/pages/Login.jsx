@@ -8,6 +8,8 @@ import { useEffect } from 'react'
 import Register from "../pages/Register"
 import { fetchCart } from '../featurs/cartSlice'
 import { SidebarContext } from '../App'
+import {BsHandThumbsUp} from 'react-icons/bs'
+import {AiOutlineArrowRight} from 'react-icons/ai'
 
 
 const Login = ({setLogin}) => {
@@ -31,15 +33,25 @@ const Login = ({setLogin}) => {
     if(location.pathname === '/login'){
       if(userState.authenticated) navigate('/checkout')
     }
-    
+    // setForm(false)
   }
 
-  const formStyle = `${location.pathname === '/login' ? '' : 'fixed' } right-0 left-0 top-36 mx-auto w-8/12	max-w-xl flex border-red-100 border-solid items-center justify-center bg-white z-0 rounded-xl`
+ 
+
+  const formStyle = `${location.pathname === '/login' ? '' : 'fixed' } right-0 left-0 top-36 mx-auto w-8/12	max-w-xl flex border-red-100 border-solid items-center justify-center bg-white z-20 rounded-xl`
   
 
   return (
     <div className={formStyle}>
-        <div className="container border-black border-solid   p-4   space-y-4 ">
+      {userState.authenticated 
+        && 
+      <div className="container flex flex-col items-center h-min-36 border-black border-solid p-4 space-y-4 ">
+        <div><BsHandThumbsUp size={60}/></div>
+        <div>Successfully LoggedIn</div>
+        <button className='flex items-center gap-2 border border-slate-400 px-4 py-2 rounded-lg bg-slate-400 text-white font-semibold' onClick={()=>{setForm(false)}}>Proceed to Shop <AiOutlineArrowRight/></button>
+      </div>}
+
+        {!userState.authenticated && (<div className="container border-black border-solid   p-4   space-y-4 ">
             <h2 className='text-center'>Login</h2>
             <div ref={errorRef} className={errorStyle}>{userState.error}</div>
             <input 
@@ -63,7 +75,7 @@ const Login = ({setLogin}) => {
               <Link to='/forgot-password' onClick={()=>setForm(false)}>Forgot Your password? </Link>
             </p>
             <p className='text-xs'>Dont have an account <span onClick={()=>setLogin(false)}  className='underline font-bold cursor-pointer'>Register</span></p>
-        </div>
+        </div>)}
     </div>
   )
 }

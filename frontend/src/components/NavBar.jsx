@@ -77,7 +77,7 @@ const NavBar = ( ) => {
     }
 
   return (
-    <nav className='fixed shadow-md bg-slate-50/50 backdrop-blur-lg'>
+    <nav className='fixed shadow-md bg-slate-50/50 backdrop-blur-lg z-10'>
     <div className={navBarStyle}>
         <Link to={'/'}><div className={logoStyle}>Logo</div></Link>
         <div className='flex items-center gap-x-4 mr-6'> 
@@ -95,7 +95,17 @@ const NavBar = ( ) => {
             <div className={profileStyle}>
                 
                 <div className=''>
-                    {user.username ? <span>Hi <b>{user.username}</b></span>: <span onClick={()=>setForm(true)}>Login</span> }
+                    {user.username ? 
+                        <div className='flex items-center'>
+                            <span className='w-10 h-10 p-1 bg-slate-300 rounded-full mx-2'>
+                                <img src={user.photo} className='w-max-full h-max-full' alt="" />
+                            </span>
+                            <span>
+                                Hi <b>{user.username}</b>
+                            </span>
+                        </div>
+                        : 
+                        <span onClick={()=>setForm(true)}>Login</span> }
                 </div>
                 {user.authenticated && 
                 <div className={dropdownStyle}>
@@ -114,7 +124,7 @@ const NavBar = ( ) => {
         {categories.map((x)=>{
             
         return (<Link 
-            to={`/${x.name}`} 
+            to={`/category/${x.name}`} 
             key={x._id} 
             className='py-2 hover:bg-slate-200 w-full text-sm text-center cursor-pointer'>
                 <span className='' >{x.name}</span>
@@ -139,7 +149,7 @@ hover:bg-slate-100 active:bg-slate-300 active:transition duration-150 ease-in-ou
 
 const profileStyle = `group cursor-pointer transition-all `
 
-const dropdownStyle = `absolute w-48 h-auto top-15 right-4 bg-white invisible group-hover:visible border border-black text-center p-2 rounded-md`
+const dropdownStyle = `absolute w-48 h-auto top-15 right-4 bg-white invisible group-hover:visible border border-black text-center p-2 rounded-md shadow-2xl	`
 
 const inputStyle = `w-28 ease-in-out duration-300 ml-2 focus:w-48 outline-none`
 

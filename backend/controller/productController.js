@@ -15,6 +15,19 @@ const getProducts = async(req,res) =>{
         res.status(400).json({error:error.message})
     }
 }
+
+const getSingleProduct = async(req,res) => {
+    const {id} = req.params
+    try{
+        const product = await productModel.findById(id)
+
+        if(!product) return res.status(400).json({error:'does not exsist'})
+        res.status(200).json(product)
+    }catch(error){
+        res.status(400).json({error:message.error})
+    }
+}
+
 const createProduct = async(req,res) => {
     
     const {name,description,stock,price,category} = req.body.input
@@ -95,7 +108,6 @@ const createCategory = async(req,res)=>{
 
 const getOneCategory = async(req,res)=>{
     const {category} = req.params
-    console.log(category)
     try{
         const response = await categoryModel.findOne(
             {name:category}
@@ -145,5 +157,6 @@ module.exports = {
     addProductsToCategory,
     getOneCategory,
     searchProducts,
-    getCategory
+    getCategory,
+    getSingleProduct
 }

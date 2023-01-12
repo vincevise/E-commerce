@@ -40,20 +40,22 @@ const userSlice = createSlice({
     },
     extraReducers(builder){
         builder.addCase(fetchUserDetails.fulfilled,(state,action)=>{
-            const {username,email,token} = action.payload.data
+            const {username,email,token,photo} = action.payload.data
             state.username = username
             state.email = email
             state.token = token
+            state.photo = photo
             state.authenticated = true
         })
         .addCase(loginUser.fulfilled,(state,action)=>{
-            const {username,email,token} =  action.payload.data 
+            const {username,email,token,photo} =  action.payload.data 
 
             console.log(action.payload)
             state.email = email
             state.token = token
             state.username = username
             state.authenticated = true
+            state.photo = photo
             localStorage.setItem('token',token)
             state.error = ''
         })

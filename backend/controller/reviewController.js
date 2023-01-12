@@ -28,8 +28,7 @@ const getProductReview = async(req,res) =>{
     const {id} = req.params
     try{    
         const data = await reviewModel.find({product:id}).populate({
-            path:'user',
-            select:'username'
+            path:'user'
         })
         res.status(200).json({data})
 

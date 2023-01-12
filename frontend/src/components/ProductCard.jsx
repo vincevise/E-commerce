@@ -42,5 +42,5 @@ const ProductCard = ({item}) => {
 export default ProductCard
 
 const productCard = 'flex flex-col h-42 justify-between items-center border w-60  rounded-xl p-2 m-1 cursor-pointer bg-white'
-const addToCartStyle = 'w-full bg-slate-500  rounded-md cursor-pointer font-medium text-white py-1 mt-2 hover:bg-slate-800  px-10 mt-2 border-slate-500 border'
+const addToCartStyle = 'w-full bg-slate-500  rounded-md cursor-pointer font-medium text-white py-1 mt-2 hover:bg-slate-800  px-10 mt-2 border border-slate-500 '
 const removeFromCartStyle = 'w-full border-black border text-black rounded-md cursor-pointer font-medium text-white py-1 hover:bg-slate-400 px-16 mt-2' 

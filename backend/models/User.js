@@ -22,6 +22,9 @@ const UserSchema = new mongoose.Schema({
     },
     resetToken:{
         type:String
+    },
+    photo:{
+        type:String
     }
 })
 
