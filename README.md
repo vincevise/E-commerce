@@ -24,3 +24,24 @@ Open http://localhost:3000 to view it in your browser.
 MERN stack E-Commerce App which has all the CRUD Operations, the frontend is built using <a href="https://vitejs.dev/guide/">Vite<a/> styled with 
 <a href="https://tailwindcss.com/"> Tailwind</a>, <a href="https://redux-toolkit.js.org/">Redux-Toolkit</a> is used for state-management, <a href="https://redux-toolkit.js.org/">Redux-Toolkit-Thunk</a> and 
 <a href="https://react-query-v3.tanstack.com/">react-query</a> to handle async requests. The backend runs on express server, it uses JWT tokens for authentications 
+
+### Features
+<ul>
+
+  <li>User Authentication
+    <ul>
+      <li>Login</li>
+      <li>Signup</li>
+      <li>Logout</li>
+      <li>Forgot Password</li>
+    </ul>
+  </li>
+  <li>Cart Management
+    <ul>
+      <li>Add/Remove item to Cart</li>
+      <li>Increase/Decrease quantity of item in Cart</li>
+    </ul>
+  </li>
+  <li>Payment Gateway <a href="https://stripe.com/docs/payments/payment-methods">Stripe-Api </a> </li>
+</ul>
+ 
