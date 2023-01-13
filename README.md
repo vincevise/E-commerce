@@ -77,6 +77,4 @@ MERN stack E-Commerce App which has all the CRUD Operations, the frontend is bui
     <ul>Add/ Remove Products</ul>
   </li>
 </ul>
-![image](https://user-images.githubusercontent.com/88813613/212323936-6d364080-4659-4795-9b77-ce5f49b87856.png)
-![image](https://user-images.githubusercontent.com/88813613/212324004-9c6a679e-22d6-4445-8d70-dee5bf74cd34.png)
 
