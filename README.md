@@ -2,7 +2,7 @@
 
 # E-commerce
 
-<a HREF="https://drive.google.com/file/d/1Rrhc-h-QjsjToc-I-xwA3xymlFoGpMwz/view?usp=sharing">Video Demo</a>
+<a href="https://www.veed.io/view/4a10456b-fd3d-47b5-9fc4-831bd9330f7b?panel=share">Video Demo</a>
 
 ### Commands To run the Application
 #### Frontend
