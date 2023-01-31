@@ -3,7 +3,8 @@
 # E-commerce
 
 
-[![Screenshot (225)](https://user-images.githubusercontent.com/88813613/212642840-680dcc05-0ea3-4e76-80f6-3329a1e8ea03.png)](https://www.veed.io/embed/4a10456b-fd3d-47b5-9fc4-831bd9330f7b)
+[![Screenshot (226)](https://user-images.githubusercontent.com/88813613/215688632-f771e50b-3d04-46c0-96c8-aa627214a57f.jpg)](https://www.veed.io/embed/4a10456b-fd3d-47b5-9fc4-831bd9330f7b)
+
 
 
 
